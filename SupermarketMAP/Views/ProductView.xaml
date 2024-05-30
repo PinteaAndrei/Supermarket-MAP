@@ -1,0 +1,24 @@
+﻿<Window x:Class="SupermarketMAP.Views.ProductView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SupermarketMAP.Views"
+        mc:Ignorable="d"
+        Title="Product" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <DataGrid ItemsSource="{Binding productsP}" SelectedItem="{Binding selectedProductP}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Name" Binding="{Binding name}"/>
+                    <DataGridTextColumn Header="Barcode" Binding="{Binding barcode}"/>
+                    <DataGridTextColumn Header="Category" Binding="{Binding category.name}"/>
+                    <DataGridTextColumn Header="Producer" Binding="{Binding producer.name}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Add Product" Command="{Binding AddProductCommand}" Margin="10"/>
+            <Button Content="Update Product" Command="{Binding UpdateProductCommand}" Margin="10"/>
+            <Button Content="Delete Product" Command="{Binding DeleteProductCommand}" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>

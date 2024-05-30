@@ -1,0 +1,27 @@
+﻿<Window x:Class="SupermarketMAP.Views.StockView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SupermarketMAP.Views"
+        mc:Ignorable="d"
+        Title="StockView" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <DataGrid ItemsSource="{Binding stocksP}" SelectedItem="{Binding selectedStockP}" AutoGenerateColumns="False" CanUserAddRows="False" Margin="10">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product" Binding="{Binding product.name}"/>
+                    <DataGridTextColumn Header="quantity" Binding="{Binding quantity}"/>
+                    <DataGridTextColumn Header="Unit Of Measurement" Binding="{Binding unitOfMeasurement}"/>
+                    <DataGridTextColumn Header="Supply Date" Binding="{Binding supplyDate}"/>
+                    <DataGridTextColumn Header="Expiration Date" Binding="{Binding expirationDate}"/>
+                    <DataGridTextColumn Header="Supply Price" Binding="{Binding supplyPrice}"/>
+                    <DataGridTextColumn Header="Sale Price" Binding="{Binding salePrice}"/>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button Content="Adaugă Stoc" Command="{Binding AddStockCommand}" Margin="10"/>
+            <Button Content="Actualizează Stoc" Command="{Binding UpdateStockCommand}" Margin="10"/>
+            <Button Content="Șterge Stoc" Command="{Binding DeleteStockCommand}" Margin="10"/>
+        </StackPanel>
+    </Grid>
+</Window>
